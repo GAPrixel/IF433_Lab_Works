@@ -2,16 +2,18 @@ package week3
 
 
 fun main() {
-    val weapon = Weapon("Dragon Slayer")
 
-    // Test 1: Damage negatif (harus gagal)
-    weapon.damage = -50
+    // Membuat object Player
+    val player = Player("Ghazy")
 
-    // Test 2: Damage terlalu besar (harus dipaksa jadi 1000)
-    weapon.damage = 9999
+    // ❌ Ini HARUS error karena xp bersifat private
+    // println(player.xp)
 
-    // Print hasil akhir
-    println("Weapon: ${weapon.name}")
-    println("Damage: ${weapon.damage}")
-    println("Tier: ${weapon.tier}")
+    // Tambah XP 50 → masih Level 1
+    player.addXp(50)
+    println("Level sekarang: ${player.level}")
+
+    // Tambah XP 60 → total 110 → naik ke Level 2
+    player.addXp(60)
+    println("Level sekarang: ${player.level}")
 }
