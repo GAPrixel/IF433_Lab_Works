@@ -1,4 +1,7 @@
 package week3
 
-class main {
+fun main() {
+    val e = Employee("Budi")
+    println("test")
+    e.salary = 5000
 }
