@@ -20,4 +20,11 @@ fun main() {
 // Optional: cek hasil
     println("Closed Trades:")
     closedTrades.forEach { println(it) }
+
+    val winningTrades = closedTrades
+        .filter { it.roe > 0 }
+
+// Optional: cek hasil
+    println("\nWinning Trades:")
+    winningTrades.forEach { println(it) }
 }
