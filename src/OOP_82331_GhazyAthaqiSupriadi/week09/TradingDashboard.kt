@@ -54,4 +54,12 @@ fun main() {
 // Optional: tampilkan hasil
     println("\nWorst Performers:")
     worstPerformersString.forEach { println(it) }
+
+    val uniquePairs = tradeHistory
+        .map { it.pair }
+        .toSet()
+
+// Optional: tampilkan hasil
+    println("\nUnique Pairs:")
+    uniquePairs.forEach { println(it) }
 }
