@@ -44,4 +44,14 @@ fun main() {
 // Optional: tampilkan
     println("\nTop Performers:")
     topPerformersString.forEach { println(it) }
+
+    val worstPerformersString = losingTrades
+        .sortedBy { it.roe }
+        .map {
+            "LOSS [${it.pair} - ${it.position}]: ${it.roe}% ROE (Lev: ${it.leverage}x)"
+        }
+
+// Optional: tampilkan hasil
+    println("\nWorst Performers:")
+    worstPerformersString.forEach { println(it) }
 }
