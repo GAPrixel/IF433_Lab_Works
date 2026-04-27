@@ -13,4 +13,11 @@ fun main() {
 
     // Optional: print untuk cek data
     tradeHistory.forEach { println(it) }
+
+    val closedTrades = tradeHistory
+        .filter { it.status == "CLOSED" }
+
+// Optional: cek hasil
+    println("Closed Trades:")
+    closedTrades.forEach { println(it) }
 }
