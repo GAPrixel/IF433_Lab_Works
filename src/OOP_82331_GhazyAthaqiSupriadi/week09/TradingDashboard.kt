@@ -11,29 +11,21 @@ fun main() {
         TradeLog("ETHUSDT", "SHORT", 8, -12.0, "CLOSED")   // loss
     )
 
-    // Optional: print untuk cek data
-    tradeHistory.forEach { println(it) }
 
     val closedTrades = tradeHistory
         .filter { it.status == "CLOSED" }
 
-// Optional: cek hasil
-    println("Closed Trades:")
-    closedTrades.forEach { println(it) }
+
 
     val winningTrades = closedTrades
         .filter { it.roe > 0 }
 
-// Optional: cek hasil
-    println("\nWinning Trades:")
-    winningTrades.forEach { println(it) }
+
 
     val losingTrades = closedTrades
         .filter { it.roe <= 0 }
 
-// Optional: cek hasil
-    println("\nLosing Trades:")
-    losingTrades.forEach { println(it) }
+
 
     val topPerformersString = winningTrades
         .sortedByDescending { it.roe }
@@ -41,9 +33,7 @@ fun main() {
             "WIN [${it.pair} - ${it.position}]: +${it.roe}% ROE (Lev: ${it.leverage}x)"
         }
 
-// Optional: tampilkan
-    println("\nTop Performers:")
-    topPerformersString.forEach { println(it) }
+
 
     val worstPerformersString = losingTrades
         .sortedBy { it.roe }
@@ -51,15 +41,13 @@ fun main() {
             "LOSS [${it.pair} - ${it.position}]: ${it.roe}% ROE (Lev: ${it.leverage}x)"
         }
 
-// Optional: tampilkan hasil
-    println("\nWorst Performers:")
-    worstPerformersString.forEach { println(it) }
+
 
     val uniquePairs = tradeHistory
         .map { it.pair }
         .toSet()
 
-// Optional: tampilkan hasil
-    println("\nUnique Pairs:")
-    uniquePairs.forEach { println(it) }
+    println("\n=== CRYPTO TRADING DASHBOARD ===")
+
+    topPerformersString.forEach { println(it) }
 }
